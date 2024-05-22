@@ -3,25 +3,16 @@ import numpy as np
 def calculate(numbers):
     if len(numbers) != 9:
         raise ValueError("List must contain nine numbers.")
-
-# Convert the list into a 3x3 numpy array
-    matrix = np.array(numbers).reshape(3, 3)
-
-# Calculate mean, variance, standard deviation, max, min, and sum along rows, columns, and flattened matrix
-    mean = [list(np.mean(matrix, axis=0)), list(np.mean(matrix, axis=1)), np.mean(matrix)]
-    variance = [list(np.var(matrix, axis=0)), list(np.var(matrix, axis=1)), np.var(matrix)]
-    std_dev = [list(np.std(matrix, axis=0)), list(np.std(matrix, axis=1)), np.std(matrix)]
-    max_val = [list(np.max(matrix, axis=0)), list(np.max(matrix, axis=1)), np.max(matrix)]
-    min_val = [list(np.min(matrix, axis=0)), list(np.min(matrix, axis=1)), np.min(matrix)]
-    sum_val = [list(np.sum(matrix, axis=0)), list(np.sum(matrix, axis=1)), np.sum(matrix)]
-
-# Return results in a dictionary
+    
+    arr = np.array(numbers).reshape(3, 3)
+    
     result = {
-        'mean': mean,
-        'variance': variance,
-        'standard deviation': std_dev,
-        'max': max_val,
-        'min': min_val,
-        'sum': sum_val
+        'mean': [list(np.mean(arr, axis=0)), list(np.mean(arr, axis=1)), np.mean(arr)],
+        'variance': [list(np.var(arr, axis=0)), list(np.var(arr, axis=1)), np.var(arr)],
+        'standard deviation': [list(np.std(arr, axis=0)), list(np.std(arr, axis=1)), np.std(arr)],
+        'max': [list(np.max(arr, axis=0)), list(np.max(arr, axis=1)), np.max(arr)],
+        'min': [list(np.min(arr, axis=0)), list(np.min(arr, axis=1)), np.min(arr)],
+        'sum': [list(np.sum(arr, axis=0)), list(np.sum(arr, axis=1)), np.sum(arr)]
     }
+    
     return result
